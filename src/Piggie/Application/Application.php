@@ -10,14 +10,23 @@ namespace Piggie\Application;
 
 use Phly\Http\Request;
 use Phly\Http\Response;
+use Piggie\Renderer;
 
 class Application
 {
-
     /**
      * @var array
      */
     private $middleware = [];
+    /**
+     * @var Renderer
+     */
+    private $renderer;
+
+    function __construct(Renderer $renderer)
+    {
+        $this->renderer = $renderer;
+    }
 
     /**
      * @param callable $middleware
@@ -26,6 +35,14 @@ class Application
     public function addMiddleware($name, callable $middleware)
     {
         $this->middleware[$name] = $middleware;
+    }
+
+    /**
+     * @return array
+     */
+    public function getMiddleware()
+    {
+        return $this->middleware;
     }
 
     /**
@@ -42,7 +59,6 @@ class Application
             }
         }
 
-        $renderer = new \Piggie\Renderer(array_pop($result));
-        echo $renderer->render();
+        echo $this->renderer->render();
     }
 }

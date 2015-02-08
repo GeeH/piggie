@@ -6,7 +6,9 @@ require('./../vendor/autoload.php');
 $response = new \Phly\Http\Response();
 $request  = \Phly\Http\ServerRequestFactory::fromGlobals($_SERVER);
 
-$application = new \Piggie\Application\Application();
+$renderer = new \Piggie\Renderer($response);
+
+$application = new \Piggie\Application\Application($renderer);
 
 $routes = [
     '/'     => 'Index',

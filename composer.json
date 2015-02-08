@@ -1,22 +1,26 @@
 {
-    "name": "geeh/piggie",
-    "description": "Middleware/CommandBus bullshit",
-    "require": {
-        "league/tactician": "0.1.*@dev",
-        "phly/http": "dev-master",
-        "zendframework/zend-view": "~2.3@dev",
-        "zendframework/zend-servicemanager": "~2.3@dev"
-    },
-    "authors": [
-        {
-            "name": "Gary Hockin",
-            "email": "gary@hock.in"
-        }
-    ],
-  "autoload": {
-      "psr-0": {
-          "Piggie": "src/"
-      }
+  "name": "geeh/piggie",
+  "description": "Middleware/CommandBus bullshit",
+  "require": {
+    "phly/http": "dev-master",
+    "zendframework/zend-view": "~2.3@dev",
+    "zendframework/zend-servicemanager": "~2.3@dev"
   },
-    "minimum-stability": "dev"
+  "authors": [
+    {
+      "name": "Gary Hockin",
+      "email": "gary@hock.in"
+    }
+  ],
+  "autoload": {
+    "psr-0": {
+      "Piggie": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "PiggieTest\\": "test/"
+    }
+  },
+  "minimum-stability": "dev"
 }
